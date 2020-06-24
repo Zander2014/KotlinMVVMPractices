@@ -1,0 +1,94 @@
+import zander.dependencies.Deps
+import zander.dependencies.Versions
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion Versions.compileSdk
+    buildToolsVersion Versions.buildTools
+
+    defaultConfig {
+        applicationId "pers.zander.kotlinmvvm.practice"
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation Deps.kotlin_stdlib
+    implementation Deps.core_ktx
+    implementation Deps.appcompat
+    implementation Deps.constraintlayout
+    implementation Deps.swiperefreshlayout
+    implementation Deps.material
+    implementation Deps.cardView
+    implementation Deps.viewPager2
+
+    //third
+    implementation Deps.glide
+    implementation Deps.circleimageview
+    implementation Deps.banner
+
+    implementation Deps.retrofit
+    implementation Deps.retrofit_converter_gson
+
+    implementation Deps.okhttp_logging_interceptor
+    implementation Deps.persistentCookieJar
+
+    implementation Deps.baseRecyclerViewAdapterHelper
+    implementation Deps.verticalTabLayout
+    implementation Deps.flowLayout
+
+    //koin 注解
+    implementation Deps.koin_android
+    implementation Deps.koin_androidx_scope
+    implementation Deps.koin_androidx_viewmodel
+
+    //dagger hilt 注解
+    implementation Deps.dagger_hilt
+    kapt Deps.kapt_dagger_hilt
+    implementation Deps.hilt_lifecycle_viewmodel
+    kapt Deps.kapt_hilt
+
+//    implementation('com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50')
+
+
+    implementation project(path: ':ktx')
+    implementation project(path: ':mvvmcore')
+
+
+    //test
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+}

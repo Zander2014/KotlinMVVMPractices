@@ -1,0 +1,4 @@
+include ':mvvmcore'
+include ':ktx'
+include ':app'
+rootProject.name = "KotlinMvvmPractice"
