@@ -2,10 +2,12 @@ package pers.zander.kotlinmvvm.practice
 
 import android.app.Application
 import android.content.Context
+import androidx.multidex.MultiDex
 import dagger.hilt.android.HiltAndroidApp
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import pers.zander.kotlinmvvm.practice.di.appModule
+import pers.zander.kotlinmvvm.practice.model.bean.User
 import pers.zander.mvvmcore.util.Timer
 import kotlin.properties.Delegates
 
@@ -19,10 +21,12 @@ import kotlin.properties.Delegates
 class App : Application() {
     companion object{
         var CONTEXT : Context by Delegates.notNull()
+        lateinit var CURRENT_USER : User
     }
 
     override fun attachBaseContext(base: Context?) {
         super.attachBaseContext(base)
+        MultiDex.install(this)
         Timer.start(APP_START)
     }
 

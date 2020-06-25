@@ -17,6 +17,7 @@ android {
         targetSdkVersion Versions.targetSdk
         versionCode Versions.versionCode
         versionName Versions.versionName
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -32,6 +33,7 @@ android {
 
     buildTypes {
         release {
+            buildConfigField("boolean", "LOG_DEBUG", "false")
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -85,6 +87,10 @@ dependencies {
     implementation project(path: ':ktx')
     implementation project(path: ':mvvmcore')
 
+    implementation "com.tencent.tbs.tbssdk:sdk:43697"
+
+    //多包
+    implementation 'com.android.support:multidex:1.0.3'
 
     //test
     testImplementation 'junit:junit:4.12'
