@@ -26,13 +26,13 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="luyao.wanandroid.ui.login.LoginFragment"
+        android:name="pers.zander.kotlinmvvm.practice.ui.login.LoginFragment"
         android:label="loginFragment"
         tools:layout="@layout/activity_login" />
 
     <activity
         android:id="@+id/loginActivity"
-        android:name="luyao.wanandroid.ui.login.LoginActivity"
+        android:name="pers.zander.kotlinmvvm.practice.ui.login.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login">
 
@@ -40,7 +40,7 @@
 
     <activity
         android:id="@+id/shareActivity"
-        android:name="luyao.wanandroid.ui.share.ShareActivity"
+        android:name="pers.zander.kotlinmvvm.practice.ui.share.ShareActivity"
         android:label="activity_share"
         tools:layout="@layout/activity_share">
 
@@ -48,7 +48,7 @@
 
     <activity
         android:id="@+id/browserActivity"
-        android:name="luyao.wanandroid.ui.BrowserActivity"
+        android:name="pers.zander.kotlinmvvm.practice.ui.BrowserActivity"
         android:label="activity_browser"
         tools:layout="@layout/activity_browser">
 
@@ -61,7 +61,7 @@
 
     <activity
         android:id="@+id/collectActivity"
-        android:name="luyao.wanandroid.ui.collect.MyCollectActivity"
+        android:name="pers.zander.kotlinmvvm.practice.ui.collect.MyCollectActivity"
         android:label="activity_collect"
         tools:layout="@layout/activity_collect">
 

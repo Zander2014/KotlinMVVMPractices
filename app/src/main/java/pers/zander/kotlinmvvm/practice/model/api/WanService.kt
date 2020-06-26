@@ -32,4 +32,10 @@ interface WanService {
     @FormUrlEncoded
     @POST("/user/register")
     suspend fun register(@Field("username") userName: String, @Field("password") passWord: String, @Field("repassword") rePassWord: String): WanResponse<User>
+
+
+    @FormUrlEncoded
+    @POST("/lg/user_article/add/json")
+    suspend fun shareArticle(@Field("title") title: String, @Field("link") url: String): WanResponse<String>
+
 }

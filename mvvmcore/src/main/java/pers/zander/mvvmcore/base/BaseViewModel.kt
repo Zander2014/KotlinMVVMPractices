@@ -16,8 +16,6 @@ import pers.zander.mvvmcore.Result
  */
 open class BaseViewModel : ViewModel() {
 
-
-
     open class UiState<T>(
             val isLoading: Boolean = false,
             val isRefresh: Boolean = false,
