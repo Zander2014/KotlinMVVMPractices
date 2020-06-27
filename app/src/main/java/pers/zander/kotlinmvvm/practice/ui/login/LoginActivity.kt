@@ -18,10 +18,16 @@ import pers.zander.utils.ktx.ext.toast
  * Depiction:
  */
 @AndroidEntryPoint
-class LoginActivity : BaseVMActivity<LoginViewModel>() {
+class LoginActivity : BaseVMActivity<LoginViewModel>(true) {
+    //2020-6-27
+    //使用Dagger-Hilt注解目前有个bug，就是如果父类构造函数带参数，那么子类必须传递参数，如果不传，使用默认的，那么会运行时报错
+    //可以去掉父类的构造函数中的参数，也就是只能用无参构造，   或者子类全部传参
+    //详见github的Issues https://github.com/google/dagger/issues/1904
+
     private val loginViewModel by viewModels<LoginViewModel>()
 
     override fun getLayoutResId(): Int = R.layout.activity_login
+
     override fun initVM(): LoginViewModel = getViewModel()
 
     override fun initView() {
@@ -62,4 +68,5 @@ class LoginActivity : BaseVMActivity<LoginViewModel>() {
             progressDialog = ProgressDialog(this)
         progressDialog?.show()
     }
+
 }

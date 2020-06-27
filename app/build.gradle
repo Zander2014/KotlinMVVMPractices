@@ -54,6 +54,7 @@ dependencies {
     implementation Deps.material
     implementation Deps.cardView
     implementation Deps.viewPager2
+    implementation Deps.livedata_ktx
 
     //third
     implementation Deps.glide
